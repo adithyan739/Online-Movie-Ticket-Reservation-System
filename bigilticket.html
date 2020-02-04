@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tickets</title>
+	<link rel="stylesheet" type="text/css" href="ticket.css">
+	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="tn-section">
+		<div class="tn-section-content">
+			<div id="movie-theatres-list">
+				<div class="tn-section-tabs tn-tabs-2">
+					<ul id="ulShowDate" class="ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix ui-widget-header">
+					<li class="ui-tabs-tab ui-corner-top ui-state-default ui-tab ui-tabs-active ui-state-active">
+						<a href="" onclick>
+						<span class="day">Today</span>
+						<span class="day">16</span>
+						</a>
+					</li>
+					<li class="ui-tabs-tab ui-corner-top ui-state-default ui-tab ui-tabs-active ui-state-active">
+						<a href="" onclick>
+						<span class="day">SUN</span>
+						<span class="day">17</span>
+						</a>
+					</li>
+					<li class="ui-tabs-tab ui-corner-top ui-state-default ui-tab ui-tabs-active ui-state-active">
+						<a href="" onclick>
+						<span class="day">MON</span>
+						<span class="day">18</span>
+						</a>
+					</li>
+				</ul>
+				
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="theatre-list" class="theatre-list-container">
+		<div class="tn-entity data-sfilter="Carnival Cinemas Kariyad" data-filter="">
+		<div class="tn-entity-details">
+		<h5 class="h5"><br><b>Carnival Cinemas</b></h5>
+		<p>NH-47, Kariyad, Near Cochin Airport, Mekkad(PO), Athani</p>
+		<div class="tn-timing-details">
+		<ul>
+		<li>
+		<button type="button" data-toggle="modal" data-target="#exampleModalCenter" class="button button4">9:00AM</button>
+
+	<!-- Modal -->
+
+		<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  		<div class="modal-dialog modal-dialog-centered" role="document">
+    	<div class="modal-content">
+      	<div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Select the number of tickets</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    <form role="form" id="exampleModalCenter" name="m1">
+      <div class="modal-body">
+        
+      <div class="uk-width-medium-9-10" id="commandligne">
+    <div class="uk-grid uk-grid-small" data-uk-grid-margin>
+        <div class="uk-width-medium-2-10">
+            <label for="inv1">Number of Tickets&nbsp:</label>
+            <input type="number" name="tickets" class="md-input val1"  id="inv1"/>
+            <label>110 Rs per Head</label>
+        </div>
+
+<div class="uk-width-medium-2-10">
+            <label for="inv3">Total Amount&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp:</label>
+            <input type="text" name="total" class="md-input val3" value="0" id="inv3" readonly/>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+	 $(document).ready(function () {
+       $("#commandligne input").keyup(multInputs);
+
+       function multInputs() {
+           var mult = 0;
+           // for each row:
+           $("div#commandligne").each(function () {
+               // get the values from this div:
+               var $val1 = $('.val1', this).val();
+               var $val2 = 110
+               var $total = ($val1 * 1) * ($val2 * 1)
+               $('.val3',this).val($total);
+           });
+       }
+  });
+                               
+</script>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button onclick="myFunction()" type="button" class="btn btn-primary">Submit</button>
+        <script>
+function myFunction() {
+if(m1.tickets.value == "") {
+        alert("Please enter number of Tickets!");
+          m1.tickets.focus();
+          return false;
+    }
+else if(m1.tickets.value>=31) {
+            alert("Maximum of 30 tickets can be book by a person!");
+            m1.tickets.focus();
+            return false;
+        }
+else{
+  location.replace("option.html")
+    }
+}
+</script>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+		<button class="button button4">12:30PM</button>
+		<button class="button button4">3:30PM</button>
+		<button class="button button4">7:30PM</button>
+			</li>
+			</ul>
+		</div>
+		
+		</div>
+		<div class="tn-entity data-sfilter="PVR Lulu" data-filter="">
+		<div class="tn-entity-details">
+		<h5><b>PVR Lulu - Kochi </b></h5>
+		<p>Lulu International Shopping Mall,Edappally</p>
+		<div class="tn-timing-details">
+			<ul>
+			<li>
+				<button class="button button4">9:30AM</button>
+				<button class="button button4">1:00PM</button>
+				<button class="button button4">4:00PM</button>
+				<button class="button button4">7:15PM</button>
+			</li>
+</ul>
+		</div>
+		
+		</div>
+		<div class="tn-entity data-sfilter="Carnival Cinemas Angamaly" data-filter="">
+		<div class="tn-entity-details">
+		<h5><b>Carnival Cinemas Angamaly</b></h5>
+		<p>KSRTC Complex</p>
+		<div class="tn-timing-details">
+			<ul>
+			<li>
+				<button class="button button4">9:00AM</button>
+				<button class="button button4">12:30PM</button>
+				<button class="button button4">3:45PM</button>
+				<button class="button button4">7:00PM</button>
+				<button class="button button4">10:00PM</button>
+			</li>
+</ul>
+		</div>
+		
+		</div>
+	</div>
+
+</form>
+
+</body>
+</html>

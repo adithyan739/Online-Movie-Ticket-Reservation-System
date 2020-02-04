@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<style>
+body {
+  font-family: Arial;
+  font-size: 17px;
+  padding: 8px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.row {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  margin: 0 -16px;
+}
+
+.col-25 {
+  -ms-flex: 35%; /* IE10 */
+  flex: 35%;
+}
+
+/*.col-50 {
+  -ms-flex: 40%; 
+  flex: 40%;
+}*//* IE10 */
+
+.col-75 {
+  -ms-flex: 55%; /* IE10 */
+  flex: 55%;
+}
+
+.col-25,
+.col-50,
+.col-75 {
+  padding: 0 16px;
+}
+
+.container {
+  background-color: #f2f2f2;
+  padding: 5px 20px 15px 20px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+}
+
+input[type=text] {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+label {
+  margin-bottom: 10px;
+  display: block;
+}
+
+.icon-container {
+  margin-bottom: 20px;
+  padding: 7px 0;
+  font-size: 24px;
+}
+
+.modal-title{
+    font-size: 20px;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance:textfield;
+}
+.btn {
+  background-color: #5a7bdd;
+  color: white;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  width: 100%;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.btn:hover {
+  background-color: #095cb5;
+}
+
+a {
+  color: #2196F3;
+}
+
+hr {
+  border: 1px solid lightgrey;
+}
+
+span.price {
+  float: right;
+  color: grey;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
+@media (max-width: 800px) {
+  .row {
+    flex-direction: column-reverse;
+  }
+  .col-25 {
+    margin-bottom: 20px;
+  }
+}
+</style>
+</head>
+<body>
+
+<h1>On Movies</h1>
+<p>Card Registration Form</p>
+<div class="row">
+  <div class="col-75">
+    <div class="container">
+      
+      
+        <div class="row">
+         <!--<div class="col-50">
+            <h3>Billing Address</h3>
+            <label for="fname"><i class="fa fa-user"></i> Full Name</label>
+            <input type="text" id="fname" name="firstname" placeholder="John M. Doe">
+            <label for="email"><i class="fa fa-envelope"></i> Email</label>
+            <input type="text" id="email" name="email" placeholder="john@example.com">
+            <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
+            <input type="text" id="adr" name="address" placeholder="542 W. 15th Street">
+            <label for="city"><i class="fa fa-institution"></i> City</label>
+            <input type="text" id="city" name="city" placeholder="New York">
+
+            <div class="row">
+              <div class="col-50">
+                <label for="state">State</label>
+                <input type="text" id="state" name="state" placeholder="NY">
+              </div>
+              <div class="col-50">
+                <label for="zip">Zip</label>
+                <input type="text" id="zip" name="zip" placeholder="10001">
+              </div>
+            </div>
+          </div>-->
+
+
+<form name="myform" method="post" action="payment.py" onsubmit="return validate()">
+          <div class="col-50">
+            <h3>Card Details</h3>
+            <label for="fname">Accepted Cards</label>
+            <div class="icon-container">
+              <i class="fa fa-cc-visa" style="color:navy;"></i>
+              <i class="fa fa-cc-amex" style="color:blue;"></i>
+              <i class="fa fa-cc-mastercard" style="color:red;"></i>
+              <i class="fa fa-cc-discover" style="color:orange;"></i>
+            </div>
+            <label for="cname">Name on Card</label>
+            <input type="text" id="cname" name="cardname" placeholder="John Varghese">
+            <label for="ccnum">Credit card number</label>
+            <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
+              <div class="row">
+                <div class="col-50">  
+            <label for="expmonth">Exp Date</label>
+            <input type="text" id="expmonth" name="expmonth" placeholder="2023-08">
+                  </div>
+             <!-- <div class="col-50">
+                <label for="expyear">Exp Year</label>
+                <input type="text" id="expyear" name="expyear" placeholder="2022">
+              </div>-->
+              <div class="col-50">
+                <label for="cvv">CVV</label>
+                <input type="text" id="cvv" name="cvv" placeholder="352">
+              </div>
+            </div>
+          </div>
+          
+        
+        <label>
+          <input type="checkbox" checked="checked" name="sameadr"> Remember me
+        </label>
+        <!--<input type="submit" value="Continue to pay" class="btn" data-toggle="modal" data-target="#myModal">-->
+        <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="">Register Card</button>
+    </form>
+    </div>
+        
+  </div>
+        
+    </div>
+
+    <!-- Newly added The Modal -->
+ <!-- <div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+ <!--       <div class="modal-header">
+          <h4 class="modal-title">Payment</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+      <!-- Modal body -->
+<!--  <div class="col-25">
+    <div class="container">
+      <h4>Order Summery<span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b></b></span></h4>
+      <p>Tickets x1<span class="price">₹110</span></p>
+      <p><u>Internet Handling fee </u><span class="price"></span></p>
+      <p>Convenience Fee <span class="price">₹10</span></p>
+      <p>IGST 18% 33AAACO9802B1ZX <span class="price">₹20</span></p>
+      <hr>
+      <p>Total <span class="price" style="color:black"><b>130Rs</b></span></p>
+    </div>
+  </div>
+        
+      <!--  <div class="modal-body">
+          <label for="inv1" name="prix-item[]" class="md-input val1"  id="inv1"/>Enter Amount:</label><input type="number" name="amount">
+        </div>-->
+        
+        <!-- Modal footer -->
+   <!--     <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Pay</button>
+        </div>
+        
+      </div>
+    </div>-->
+ <!-- </form>
+  </div>
+<!--<form action="bigilticket.html" method="get">
+  <div class="col-25">
+    <div class="container">
+      <h4>Order Summery<span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b></b></span></h4>
+      <p>Tickets x1<span class="price">₹110</span></p>
+      <p><u>Internet Handling fee </u><span class="price"></span></p>
+      <p>Convenience Fee <span class="price">₹10</span></p>
+      <p>IGST 18% 33AAACO9802B1ZX <span class="price">₹20</span></p>
+      <hr>
+      <p>Total <span class="price" style="color:black"><b>130Rs</b></span></p>
+    </div>
+  </div>
+</div>
+
+</form>-->
+<script>  
+function validate()
+{  
+    if(myform.cardname.value == "") {
+        alert("Error: Cardname cannot be blank!");
+          myform.cardname.focus();
+          return false;
+    }
+    
+        /*re = /[-16]/;
+        if(!re.test(myform.cardnumber.value)) {
+            alert("Error: Cardnumber must contain 16 number!");
+            myform.cardnumber.focus();
+            return false;
+        }*/
+    var re16digit = /^\d{16}$/;
+    if (!re16digit.test(document.myform.cardnumber.value)) {
+        alert("Please enter your 16 digit credit card numbers!");
+        return false;
+    }
+
+    if(myform.expmonth.value == "") {
+        alert("Error: Expiry Date cannot be blank!");
+          myform.expmonth.focus();
+          return false;
+    }
+    /*var numb = /^[0-9]+$/;
+    if(myform.expmonth.match(numb))
+      {
+          alert("Error: Please provide correct expiry date!");
+          myform.expmonth.focus();
+          return true;
+    }
+    else
+      {
+      alert('Please input numeric characters only');
+      document.myform.expmonth.focus();
+      return false;
+      }
+   /* var re4digit = /^\d{4}$/;
+    if (!re4digit.test(document.myform.expyear.value)) {
+        alert("Error:Enter a valid Expiry Year!");
+          myform.expyear.focus();
+          return false;
+    }*/
+
+    /*re = /[-3]/;
+        if(!re.test(myform.cvv.value)) {
+            alert("Error: CVV must contain 3 number!");
+            myform.cvv.focus();
+            return false;
+        }*/
+    var re3digit = /^\d{3}$/;
+    if (!re3digit.test(document.myform.cvv.value)) {
+        alert("CVV must contain 3 number!");
+        return false;
+    }
+        
+     else {
+          alert("Please check that you've entered and confirmed your Card Details!");     
+          
+         //  $('#myModal').modal('show');
+         return true;
+
+    }
+
+    alert("You entered valid Details: ");
+
+    return true;
+     document.myform.username.reset();
+}
+</script>
+</body>
+</html>

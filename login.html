@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Login Form</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+<style type="text/css">
+    body{
+        background-color: #d2d2d2;
+    }
+	.login-form {
+		width: 340px;
+    	margin: 50px auto;
+	}
+    .login-form form {
+    	margin-bottom: 15px;
+        background: #f7f7f7;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+        padding: 30px;
+    }
+    .login-form h2 {
+        margin: 0 0 15px;
+    }
+    .form-control, .btn {
+        min-height: 38px;
+        border-radius: 2px;
+    }
+    .btn {        
+        font-size: 15px;
+        font-weight: bold;
+         background-image: linear-gradient(to right,#6200ff , #a600a9);
+        border-radius: 17px;
+    }
+     .btn:hover {        
+        font-size: 15px;
+        font-weight: bold;
+         background-image: linear-gradient(to right,#6200ff , #6200ff);
+        border-radius: 17px;
+    }
+</style>
+</head>
+<body>
+<div class="login-form">
+    <form name="myform" method="post" action="login.py" onsubmit="return validateform()">
+        <h2 class="text-center">Log in</h2>       
+        <div class="form-group">
+            <input type="text" class="form-control" name="username" placeholder="Username" required="required">
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" name="password" placeholder="Password" required="required">
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block">Log in</button>
+        </div>
+        <div class="clearfix">
+            <label class="pull-left checkbox-inline"><input type="checkbox"> Remember me</label>
+            <a href="#" class="pull-right">Forgot Password?</a>
+        </div>        
+    </form>
+    <form action="registration.html" method="post">
+    <p class="text-center"><a href="#">Create an Account</a></p>
+    <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block">Register</button>
+        </div>
+    </form>
+</div>
+    
+    <!--Name and passsword validation-->
+
+<script>  
+function validateform()
+{  
+    if(myform.username.value == "") {
+        alert("Error: Username cannot be blank!");
+          myform.username.focus();
+          return false;
+    }
+    // regular expression to match required string format
+    re = /^\w+$/;
+    if(!re.test(myform.username.value)) {
+        alert("Error: Username must contain only letters, numbers and underscores!");
+          myform.username.focus();
+          return false;
+    }
+    //compare both password field value 
+    if(myform.password.value != "" && myform.password.value == myform.password.value) {
+          if(myform.password.value.length < 6) {
+            alert("Error: Password must contain at least six characters!");
+            myform.password.focus();
+            return false;
+        }
+      //compare username and password if both are same generate error 
+        if(myform.password.value == myform.username.value) {
+            alert("Error: Password must be different from Username!");
+            myform.password.focus();
+            return false;
+        }
+          // regular expression to match required at least one numeric value in passord field
+        re = /[0-9]/;
+        if(!re.test(myform.password.value)) {
+            alert("Error: password must contain at least one number (0-9)!");
+            myform.password.focus();
+            return false;
+        }
+          // regular expression to match required at least one lowercase letter in passord field
+        re = /[a-z]/;
+        if(!re.test(myform.password.value)) {
+            alert("Error: password must contain at least one lowercase letter (a-z)!");
+            myform.password.focus();
+            return false;
+        }
+          // regular expression to match required at least one uppercase letter in passord field
+       // re = /[A-Z]/;
+        //if(!re.test(myform.password.value)) {
+          //  alert("Error: password must contain at least one uppercase letter (A-Z)!");
+            //myform.password.focus();
+        //    return false;
+        //}
+    } else {
+          alert("Error: Please check that you've entered and confirmed your password!");
+          myform.password.focus();
+          return false;
+    }
+    //alert("You entered a valid password: " + myform.password.value);
+    return true;
+     document.myform.username.reset();
+     /*document.myform.password.reset();*/
+} 
+
+</script> 
+</body>
+</html>                                		                            
